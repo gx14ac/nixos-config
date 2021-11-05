@@ -4,7 +4,7 @@
   users.users.snt = {
     isNormalUser = true;
     home = "/home/snt";
-    #extraGroups = [ "docker" "wheel" ];
+    extraGroups = [ "wheel" ];
     shell = pkgs.fish;
   };
 }

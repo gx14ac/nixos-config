@@ -2,8 +2,19 @@
 
 {
   home.packages = [
-    pkgs.git
+    pkgs.fzf
+    pkgs.git-crypt
     pkgs.htop
+    pkgs.jq
+    pkgs.rofi
+    pkgs.go
+    pkgs.gopls
+    pkgs.tree
+    pkgs.watch
+    pkgs.zathura
+
+    pkgs.tlaplusToolbox
+    pkgs.tetex
   ];
 
   programs.home-manager = {
@@ -26,12 +37,28 @@
     userName = "Shintarou Okumura";
     userEmail = "shintarou.okumula@gmail.com";
     signing = {
-      key = "F29CEA2CF04FB748";
+      key = "E2D0B24D5F2871BB";
       signByDefault = true;
     };
     aliases = {
       prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
       root = "rev-parse --show-toplevel";
+    };
+  };
+  
+  programs.fish = {
+    enable = true;
+
+    shellAliases = {
+      ga = "git add";
+      gc = "git commit";
+      gco = "git checkout";
+      gcp = "git cherry-pick";
+      gdiff = "git diff";
+      gl = "git prettylog";
+      gp = "git push";
+      gs = "git status";
+      gt = "git tag";
     };
   };
 

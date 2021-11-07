@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, bobthefish,  ...  }:
+
+with lib;
 
 {
   home.packages = [
@@ -36,10 +38,12 @@
     enable = true;
     userName = "Shintarou Okumura";
     userEmail = "shintarou.okumula@gmail.com";
+
     signing = {
       key = "E2D0B24D5F2871BB";
       signByDefault = true;
     };
+
     aliases = {
       prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
       root = "rev-parse --show-toplevel";
@@ -48,6 +52,15 @@
   
   programs.fish = {
     enable = true;
+    interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
+      (builtins.readFile ./config.fish)
+
+      "source ${bobthefish}/fish_prompt.fish"
+      #"source ${inputs.theme-bobthefish}/fish_right_prompt.fish"
+      #"source ${inputs.theme-bobthefish}/fish_title.fish"
+
+      "set -g SHELL ${pkgs.fish}/bin/fish"
+    ]);
 
     shellAliases = {
       ga = "git add";

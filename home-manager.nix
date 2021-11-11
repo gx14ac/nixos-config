@@ -69,6 +69,7 @@ name: { bobthefish }:
       gdiff = "git diff";
       gl = "git prettylog";
       gp = "git push";
+      gpo = "git push origin";
       gs = "git status";
       gt = "git tag";
     };

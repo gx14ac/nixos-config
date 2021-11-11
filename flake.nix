@@ -11,15 +11,15 @@
 
     bobthefish = {
       url = "github:oh-my-fish/theme-bobthefish/master";
-      flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, bobthefish }: {
+  outputs = { self, nixpkgs, home-manager, bobthefish }@inputs: let
+    mkVM = import ./home-manager.nix;
+  in {
     nixosConfigurations = {
       vm-intel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        inherit bobthefish;
         modules = [
           ./configuration.nix
 	  ./hardware-configuration.nix
@@ -28,7 +28,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.snt = import ./home-manager.nix;
+            home-manager.users.shinta = mkVM "hoge" rec { inherit bobthefish; };
           }
         ];
       };

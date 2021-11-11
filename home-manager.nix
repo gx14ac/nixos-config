@@ -1,6 +1,6 @@
-{ config, lib, pkgs, bobthefish,  ...  }:
+name: { bobthefish }:
 
-with lib;
+{ lib, config, pkgs, ... }:
 
 {
   home.packages = [
@@ -38,12 +38,10 @@ with lib;
     enable = true;
     userName = "Shintarou Okumura";
     userEmail = "shintarou.okumula@gmail.com";
-
     signing = {
-      key = "E2D0B24D5F2871BB";
+      key = "C9C0D04DD5A2BA56";
       signByDefault = true;
     };
-
     aliases = {
       prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
       root = "rev-parse --show-toplevel";
@@ -52,10 +50,11 @@ with lib;
   
   programs.fish = {
     enable = true;
+
     interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
       (builtins.readFile ./config.fish)
 
-      "source ${bobthefish}/fish_prompt.fish"
+      "source ${bobthefish}/functions/fish_prompt.fish"
       #"source ${inputs.theme-bobthefish}/fish_right_prompt.fish"
       #"source ${inputs.theme-bobthefish}/fish_title.fish"
 

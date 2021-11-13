@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 {
-  users.users.snt = {
+  users.users.shinta = {
     isNormalUser = true;
-    home = "/home/snt";
+    home = "/home/shinta";
     extraGroups = [ "wheel" ];
     shell = pkgs.fish;
   };

@@ -1,4 +1,4 @@
-name: { theme-bobthefish, fish-fzf }:
+name: { theme-bobthefish, fish-fzf, fish-ghq }:
 
 { lib, config, pkgs, ... }:
 
@@ -85,6 +85,10 @@ name: { theme-bobthefish, fish-fzf }:
       {
         name = "fish-fzf";
         src  = fish-fzf;
+      }
+      {
+        name = "fish-ghq";
+        src  = fish-ghq;
       }
     ];
   };

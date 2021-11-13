@@ -1,4 +1,4 @@
-name: { bobthefish }:
+name: { theme-bobthefish }:
 
 { lib, config, pkgs, ... }:
 
@@ -18,11 +18,6 @@ name: { bobthefish }:
     pkgs.tlaplusToolbox
     pkgs.tetex
   ];
-
-  programs.home-manager = {
-    enable = true;
-    path = "…";
-  };
 
   programs.tmux = {
     enable = true;
@@ -47,17 +42,15 @@ name: { bobthefish }:
       root = "rev-parse --show-toplevel";
     };
   };
-  
+
   programs.fish = {
     enable = true;
 
     interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
+      "source ${theme-bobthefish}/functions/fish_prompt.fish"
+      #"source ${theme-bobthefish}/functions/fish_right_prompt.fish"
+      #"source ${theme-bobthefish}/functions/fish_title.fish"
       (builtins.readFile ./config.fish)
-
-      "source ${bobthefish}/functions/fish_prompt.fish"
-      #"source ${inputs.theme-bobthefish}/fish_right_prompt.fish"
-      #"source ${inputs.theme-bobthefish}/fish_title.fish"
-
       "set -g SHELL ${pkgs.fish}/bin/fish"
     ]);
 
@@ -73,6 +66,13 @@ name: { bobthefish }:
       gs = "git status";
       gt = "git tag";
     };
+
+    plugins = map (n: {
+      name = n;
+      src  = theme-bobthefish;
+    }) [
+      "theme-bobthefish"
+    ];
   };
 
   services.gpg-agent = {

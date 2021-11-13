@@ -1,4 +1,4 @@
-name: { theme-bobthefish }:
+name: { theme-bobthefish, fish-fzf }:
 
 { lib, config, pkgs, ... }:
 
@@ -14,6 +14,7 @@ name: { theme-bobthefish }:
     pkgs.tree
     pkgs.watch
     pkgs.zathura
+    pkgs.ghq
 
     pkgs.tlaplusToolbox
     pkgs.tetex
@@ -41,6 +42,15 @@ name: { theme-bobthefish }:
       prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
       root = "rev-parse --show-toplevel";
     };
+    extraConfig = {
+      branch.autosetuprebase = "always";
+      color.ui = true;
+      core.askPass = "";
+      credential.helper = "store";
+      github.user = "shinta";
+      push.default = "upstream";
+      init.defaultBranch = "main";
+    };
   };
 
   programs.fish = {
@@ -48,8 +58,8 @@ name: { theme-bobthefish }:
 
     interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
       "source ${theme-bobthefish}/functions/fish_prompt.fish"
-      #"source ${theme-bobthefish}/functions/fish_right_prompt.fish"
-      #"source ${theme-bobthefish}/functions/fish_title.fish"
+      "source ${theme-bobthefish}/functions/fish_right_prompt.fish"
+      "source ${theme-bobthefish}/functions/fish_title.fish"
       (builtins.readFile ./config.fish)
       "set -g SHELL ${pkgs.fish}/bin/fish"
     ]);
@@ -67,11 +77,15 @@ name: { theme-bobthefish }:
       gt = "git tag";
     };
 
-    plugins = map (n: {
-      name = n;
-      src  = theme-bobthefish;
-    }) [
-      "theme-bobthefish"
+    plugins = [
+      {
+        name = "theme-bobthefish";
+        src  = theme-bobthefish;
+      }
+      {
+        name = "fish-fzf";
+        src  = fish-fzf;
+      }
     ];
   };
 

@@ -1,0 +1,66 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1634544068,
+        "narHash": "sha256-RlRQBaAHfdWqfRyHdWuDPMkplBTYwuyDQqDcNbP/Sog=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "ff2bed9dac84fb202bbb3c49fdcfe30c29d0b12f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-21.05",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1636333654,
+        "narHash": "sha256-3wh9PtCzcaJQuZrgZ+ygKfhltkDNNqT6zOzGsRbjZEo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e74894146a42ba552ebafa19ab2d1df7ccbc1738",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-21.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "theme-bobthefish": "theme-bobthefish"
+      }
+    },
+    "theme-bobthefish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636121815,
+        "narHash": "sha256-jpp+5Cif3SiV2unilQTXGGiav9ntPKpu1mCmXxpgEFo=",
+        "owner": "oh-my-fish",
+        "repo": "theme-bobthefish",
+        "rev": "332f23abd7a095d5b2c024a061af7b890a4f0c20",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oh-my-fish",
+        "repo": "theme-bobthefish",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

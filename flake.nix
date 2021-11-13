@@ -11,11 +11,16 @@
 
     theme-bobthefish = {
       url = "github:oh-my-fish/theme-bobthefish";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fish-fzf = {
+      url = "github:jethrokuan/fzf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, theme-bobthefish }@inputs: let
+  outputs = { self, nixpkgs, home-manager, theme-bobthefish, fish-fzf }@inputs: let
     mkVM = import ./home-manager.nix;
   in {
     nixosConfigurations = {
@@ -29,7 +34,9 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.shinta = mkVM "hoge" rec { inherit theme-bobthefish; };
+            home-manager.users.shinta = mkVM "hoge" rec { 
+              inherit theme-bobthefish fish-fzf; 
+	    };
           }
         ];
       };

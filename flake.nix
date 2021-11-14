@@ -23,24 +23,41 @@
       url = "github:decors/fish-ghq";
       flake = false;
     };
+
+    tmux-pain-control = {
+      url = "github:tmux-plugins/tmux-pain-control";
+      flake = false;
+    };
+
+    tmux-dracula = {
+      url = "github:dracula/tmux";
+      flake = false;
+    };
+
+    vim-fish = {
+      url = "github:dag/vim-fish";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, theme-bobthefish, fish-fzf, fish-ghq, }@inputs: let
-    mkVM = import ./home-manager.nix;
+  outputs = { self, nixpkgs, home-manager, theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control,
+    tmux-dracula, vim-fish, }:
+  let
+    mkHome = import ./home-manager.nix;
   in {
     nixosConfigurations = {
       vm-intel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
 	  ./hardware-configuration.nix
+	  ./overlays.nix
 	  ./user.nix
 	  ./common.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.shinta = mkVM "hoge" rec { 
-              inherit theme-bobthefish fish-fzf fish-ghq; 
+            home-manager.users.shinta = mkHome "shinta" rec { 
+              inherit theme-bobthefish fish-fzf fish-ghq tmux-pain-control tmux-dracula vim-fish;
 	    };
           }
         ];

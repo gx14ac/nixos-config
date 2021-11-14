@@ -75,7 +75,10 @@
         "fish-ghq": "fish-ghq",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "theme-bobthefish": "theme-bobthefish"
+        "theme-bobthefish": "theme-bobthefish",
+        "tmux-dracula": "tmux-dracula",
+        "tmux-pain-control": "tmux-pain-control",
+        "vim-fish": "vim-fish"
       }
     },
     "theme-bobthefish": {
@@ -91,6 +94,54 @@
       "original": {
         "owner": "oh-my-fish",
         "repo": "theme-bobthefish",
+        "type": "github"
+      }
+    },
+    "tmux-dracula": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1635575154,
+        "narHash": "sha256-Jev0knO11OaI2EizXx3+d2tNDqfQJvua8xabZ3DEQUI=",
+        "owner": "dracula",
+        "repo": "tmux",
+        "rev": "78869c38cc998f710c12e04d2e3b92c517a4cd65",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dracula",
+        "repo": "tmux",
+        "type": "github"
+      }
+    },
+    "tmux-pain-control": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628510980,
+        "narHash": "sha256-2VI9w7Naj9OHF3iuV63Ij4QcYhbrtngyJ3GpeyzIKxs=",
+        "owner": "tmux-plugins",
+        "repo": "tmux-pain-control",
+        "rev": "32b760f6652f2305dfef0acd444afc311cf5c077",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tmux-plugins",
+        "repo": "tmux-pain-control",
+        "type": "github"
+      }
+    },
+    "vim-fish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1511387890,
+        "narHash": "sha256-8OjCJcGW425sb8nOabCoT/MxlNR13qub/oRRBVKlcvs=",
+        "owner": "dag",
+        "repo": "vim-fish",
+        "rev": "50b95cbbcd09c046121367d49039710e9dc9c15f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dag",
+        "repo": "vim-fish",
         "type": "github"
       }
     }

@@ -1,4 +1,4 @@
-name: { theme-bobthefish, fish-fzf, fish-ghq }:
+name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
 
 { lib, config, pkgs, ... }:
 
@@ -20,12 +20,41 @@ name: { theme-bobthefish, fish-fzf, fish-ghq }:
     pkgs.tetex
   ];
 
+  programs.direnv= {
+    enable = true;
+    config = {
+      whitelist = {
+        prefix= [
+          "$HOME/source/go/src/github.com/shintard"
+        ];
+      };
+    };
+  };
+
+  programs.go = {
+    enable = true;
+    goPath = "source/go";
+    goPrivate = [ "github.com/shintard" ];
+  };
+
   programs.tmux = {
     enable = true;
     clock24 = true;
     keyMode = "vi";
     terminal = "xterm-256color";
-    shortcut = "l";
+    shortcut = "x";
+
+    extraConfig = ''
+      set -ga terminal-overrides ",*256col*:Tc"
+
+      set -g @dracula-show-battery false
+      set -g @dracula-show-network false
+      set -g @dracula-show-weather false
+      set -g @plugin 'tmux-plugins/tmux-pain-control'
+
+      run-shell ${tmux-pain-control}/pain_control.tmux
+      run-shell ${tmux-dracula}/dracula.tmux
+    '';
   };
 
   programs.gpg.enable = true;
@@ -93,6 +122,11 @@ name: { theme-bobthefish, fish-fzf, fish-ghq }:
     ];
   };
 
+  programs.kitty = {
+    enable = true;
+    extraConfig = builtins.readFile ./kitty;
+  };
+
   services.gpg-agent = {
     enable = true;
     pinentryFlavor = "tty";
@@ -100,5 +134,23 @@ name: { theme-bobthefish, fish-fzf, fish-ghq }:
     # avoid entering a password Save the key permanently
     defaultCacheTtl = 31536000;
     maxCacheTtl = 31536000;
+  };
+
+  programs.neovim = {
+    enable = true;
+    package = pkgs.neovim-nightly;
+
+    plugins = with pkgs; [
+      #customVim.vim-fish
+
+      vimPlugins.ctrlp
+      vimPlugins.vim-airline
+      vimPlugins.vim-airline-themes
+      vimPlugins.vim-eunuch
+      vimPlugins.vim-gitgutter
+      vimPlugins.vim-markdown
+      vimPlugins.vim-nix
+      vimPlugins.typescript-vim
+    ];
   };
 }

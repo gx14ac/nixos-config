@@ -6,8 +6,10 @@ set --universal --erase fish_greeting
 function fish_greeting; end
 funcsave fish_greeting
 
+# Set bobthefish theme color
 set -g theme_color_scheme dracula
 
+# My Color
 set -U fish_color_normal normal
 set -U fish_color_command F8F8F2
 set -U fish_color_quote F1FA8C
@@ -34,4 +36,6 @@ set -U fish_pager_color_description B3A06D yellow
 set -U fish_pager_color_prefix white --bold --underline
 set -U fish_pager_color_progress brwhite --background=cyan
 
-bind \c] __ghq_repository_search
+if test -z $TMUX
+  tmux new-session
+end

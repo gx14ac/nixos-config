@@ -1,4 +1,4 @@
-{ vim-fish }:
+{ vim-fish, vim-fugitive }:
 
 self: super:
 
@@ -7,6 +7,10 @@ self: super:
     vim-fish = vimUtils.buildVimPlugin {
       name = "vim-fish";
       src = vim-fish;
+    };
+    vim-fugitive = vimUtils.buildVimPlugin {
+      name = "vim-fugitive";
+      src = vim-fugitive;
     };
   };
 }

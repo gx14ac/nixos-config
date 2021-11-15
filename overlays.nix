@@ -1,7 +1,7 @@
-{ vim-fish }:
+{ vim-fish, vim-fugitive }:
 
 let 
-  vim= import ./vim.nix { inherit vim-fish; };
+  vim= import ./vim.nix { inherit vim-fish vim-fugitive; };
 in {
   nixpkgs.overlays = [
     vim

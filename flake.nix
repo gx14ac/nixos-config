@@ -43,21 +43,27 @@
   outputs = { self, nixpkgs, home-manager, theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control,
     tmux-dracula, vim-fish, }:
   let
+    #system = "x86_64-linux";
+    #pkgs = import nixpkgs {
+    #  inherit system;
+    #};
+
     mkHome = import ./home-manager.nix;
+    overlays = import ./overlays.nix { inherit vim-fish; };
   in {
     nixosConfigurations = {
       vm-intel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
 	  ./hardware-configuration.nix
-	  ./overlays.nix
 	  ./user.nix
 	  ./common.nix
+	  overlays
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.shinta = mkHome "shinta" rec { 
-              inherit theme-bobthefish fish-fzf fish-ghq tmux-pain-control tmux-dracula vim-fish;
+              inherit theme-bobthefish fish-fzf fish-ghq tmux-pain-control tmux-dracula;
 	    };
           }
         ];

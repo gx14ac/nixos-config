@@ -142,6 +142,7 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
 
     plugins = with pkgs; [
       customVim.vim-fish
+      customVim.vim-fugitive
 
       vimPlugins.ctrlp
       vimPlugins.vim-airline
@@ -156,6 +157,9 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     extraConfig = ''
       syntax enable
       filetype plugin indent on
+      compiler fish
+      setlocal textwidth=79
+      setlocal foldmethod=expr
     '';
   };
 }

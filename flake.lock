@@ -78,7 +78,8 @@
         "theme-bobthefish": "theme-bobthefish",
         "tmux-dracula": "tmux-dracula",
         "tmux-pain-control": "tmux-pain-control",
-        "vim-fish": "vim-fish"
+        "vim-fish": "vim-fish",
+        "vim-fugitive": "vim-fugitive"
       }
     },
     "theme-bobthefish": {
@@ -142,6 +143,22 @@
       "original": {
         "owner": "dag",
         "repo": "vim-fish",
+        "type": "github"
+      }
+    },
+    "vim-fugitive": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636953472,
+        "narHash": "sha256-WE1halfFiJjR8ZccrRXb23rfbZc0BGrpSAuwLBp08Xg=",
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "rev": "cd67d087df560a2cbf02cf74fbb937797d4ae797",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-fugitive",
         "type": "github"
       }
     }

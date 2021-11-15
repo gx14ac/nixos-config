@@ -38,10 +38,15 @@
       url = "github:dag/vim-fish";
       flake = false;
     };
+
+    vim-fugitive = {
+      url = "github:tpope/vim-fugitive";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control,
-    tmux-dracula, vim-fish, }:
+    tmux-dracula, vim-fish, vim-fugitive }:
   let
     #system = "x86_64-linux";
     #pkgs = import nixpkgs {
@@ -49,7 +54,7 @@
     #};
 
     mkHome = import ./home-manager.nix;
-    overlays = import ./overlays.nix { inherit vim-fish; };
+    overlays = import ./overlays.nix { inherit vim-fish vim-fugitive; };
   in {
     nixosConfigurations = {
       vm-intel = nixpkgs.lib.nixosSystem {

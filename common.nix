@@ -20,6 +20,9 @@
     gcc
     bash
     sysstat
+    gnumake
+    killall
+    niv
   ];
 
   # nix flakes install

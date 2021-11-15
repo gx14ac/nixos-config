@@ -141,7 +141,7 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     package = pkgs.neovim-nightly;
 
     plugins = with pkgs; [
-      #customVim.vim-fish
+      customVim.vim-fish
 
       vimPlugins.ctrlp
       vimPlugins.vim-airline
@@ -152,5 +152,10 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
       vimPlugins.vim-nix
       vimPlugins.typescript-vim
     ];
+    
+    extraConfig = ''
+      syntax enable
+      filetype plugin indent on
+    '';
   };
 }

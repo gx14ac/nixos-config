@@ -1,7 +1,16 @@
-{ vim-fish, vim-fugitive }:
+{ vim-fish, vim-fugitive, vim-dracula, nord-vim,
+  nvim-treesitter, nvim-treesitter-playground,
+  nvim-treesitter-textobjects, nvim-lspconfig,
+  nvim-lspinstall, nvim-cmp, cmp-nvim-lsp,
+  cmp-vsnip, cmp-buffer, vim-vsnip,
+}:
 
 let 
-  vim= import ./vim.nix { inherit vim-fish vim-fugitive; };
+  vim= import ./vim.nix { inherit vim-fish vim-fugitive
+  	vim-dracula nord-vim nvim-treesitter
+ 	nvim-treesitter-playground nvim-treesitter-textobjects
+	nvim-lspconfig nvim-lspinstall nvim-cmp
+	cmp-nvim-lsp cmp-vsnip cmp-buffer vim-vsnip; };
 in {
   nixpkgs.overlays = [
     vim

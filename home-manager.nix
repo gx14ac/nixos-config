@@ -143,6 +143,17 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     plugins = with pkgs; [
       customVim.vim-fish
       customVim.vim-fugitive
+      customVim.vim-dracula
+      customVim.nvim-treesitter
+      customVim.nvim-treesitter-playground
+      customVim.nvim-treesitter-textobjects
+      customVim.nvim-lspconfig
+      customVim.nvim-lspinstall
+      customVim.nvim-cmp
+      customVim.cmp-nvim-lsp
+      customVim.cmp-vsnip
+      customVim.cmp-buffer
+      customVim.vim-vsnip
 
       vimPlugins.ctrlp
       vimPlugins.vim-airline
@@ -153,13 +164,7 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
       vimPlugins.vim-nix
       vimPlugins.typescript-vim
     ];
-    
-    extraConfig = ''
-      syntax enable
-      filetype plugin indent on
-      compiler fish
-      setlocal textwidth=79
-      setlocal foldmethod=expr
-    '';
+
+    extraConfig = import ./vim-config.nix;
   };
 }

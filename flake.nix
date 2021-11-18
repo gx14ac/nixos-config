@@ -43,18 +43,80 @@
       url = "github:tpope/vim-fugitive";
       flake = false;
     };
+
+    vim-dracula = {
+      url = "github:dracula/vim";
+      flake = false;
+    };
+
+    nord-vim = {
+      url = "github:arcticicestudio/nord-vim";
+      flake = false;
+    };
+
+    nvim-treesitter = {
+      url = "github:nvim-treesitter/nvim-treesitter";
+      flake = false;
+    };
+
+    nvim-treesitter-playground = {
+      url = "github:nvim-treesitter/playground";
+      flake = false;
+    };
+
+    nvim-treesitter-textobjects = {
+      url = "github:nvim-treesitter/nvim-treesitter-textobjects";
+      flake = false;
+    };
+
+    nvim-lspconfig = {
+      url = "github:neovim/nvim-lspconfig";
+      flake = false;
+    };
+
+    nvim-lspinstall = {
+      url = "github:williamboman/nvim-lsp-installer";
+      flake = false;
+    };
+
+    nvim-cmp = {
+      url = "github:hrsh7th/nvim-cmp";
+      flake = false;
+    };
+
+    cmp-nvim-lsp = {
+      url = "github:hrsh7th/cmp-nvim-lsp";
+      flake = false;
+    };
+
+    cmp-vsnip = {
+      url = "github:hrsh7th/cmp-vsnip";
+      flake = false;
+    };
+
+    cmp-buffer = {
+      url = "github:hrsh7th/cmp-buffer";
+      flake = false;
+    };
+
+    vim-vsnip = {
+      url = "github:hrsh7th/vim-vsnip";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control,
-    tmux-dracula, vim-fish, vim-fugitive }:
+  outputs = { self, nixpkgs, 
+  	home-manager, theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control,
+	tmux-dracula, vim-fish, vim-fugitive, vim-dracula, nord-vim, nvim-treesitter, 
+	nvim-treesitter-playground, nvim-treesitter-textobjects, nvim-lspconfig, nvim-lspinstall, nvim-cmp, cmp-nvim-lsp, cmp-vsnip, cmp-buffer, vim-vsnip, }:
   let
-    #system = "x86_64-linux";
-    #pkgs = import nixpkgs {
-    #  inherit system;
-    #};
-
     mkHome = import ./home-manager.nix;
-    overlays = import ./overlays.nix { inherit vim-fish vim-fugitive; };
+    overlays = import ./overlays.nix {
+    	inherit vim-fish vim-fugitive
+	vim-dracula nord-vim nvim-treesitter
+	nvim-treesitter-playground nvim-treesitter-textobjects
+	nvim-lspconfig nvim-lspinstall nvim-cmp
+	cmp-nvim-lsp cmp-vsnip cmp-buffer vim-vsnip; };
   in {
     nixosConfigurations = {
       vm-intel = nixpkgs.lib.nixosSystem {

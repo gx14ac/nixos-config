@@ -108,7 +108,8 @@
   outputs = { self, nixpkgs, 
   	home-manager, theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control,
 	tmux-dracula, vim-fish, vim-fugitive, vim-dracula, nord-vim, nvim-treesitter, 
-	nvim-treesitter-playground, nvim-treesitter-textobjects, nvim-lspconfig, nvim-lspinstall, nvim-cmp, cmp-nvim-lsp, cmp-vsnip, cmp-buffer, vim-vsnip, }:
+	nvim-treesitter-playground, nvim-treesitter-textobjects, nvim-lspconfig,
+	nvim-lspinstall, nvim-cmp, cmp-nvim-lsp, cmp-vsnip, cmp-buffer, vim-vsnip, }:
   let
     mkHome = import ./home-manager.nix;
     overlays = import ./overlays.nix {

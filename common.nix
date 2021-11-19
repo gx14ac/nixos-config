@@ -1,17 +1,30 @@
 { config, pkgs, currentSystem, ... }:
 
 {
-  # enable the X11 windowing system.
-  services.xserver.enable = true;
 
-  # enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    dpi = 220;
 
-  # configure keymap in X11
-  # services.xserver.layout = "us";
-  services.xserver.xkbOptions = "ctrl:swapcaps";
+    desktopManager = {
+      xterm.enable = false;
+      wallpaper.mode = "scale";
+    };
+
+    displayManager = {
+      defaultSession = "none+i3";
+      lightdm.enable = true;
+
+      sessionCommands = ''
+        ${pkgs.xlibs.xset}/bin/xset r rate 200 40
+      '';
+    };
+
+    windowManager = {
+      i3.enable = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     vim

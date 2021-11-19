@@ -20,6 +20,9 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     pkgs.tetex
   ];
 
+  xdg.configFile."rofi/config.rasi".text = builtins.readFile ./rofi;
+  home.file.".inputrc".source = ./inputrc;
+
   programs.direnv= {
     enable = true;
     config = {
@@ -166,5 +169,16 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     ];
 
     extraConfig = import ./vim-config.nix;
+  };
+
+  programs.i3status = {
+    enable = true;
+
+    general = {
+      colors = true;
+      color_good = "#8C9440";
+      color_bad = "#A54242";
+      color_degraded = "#DE935F";
+    };
   };
 }

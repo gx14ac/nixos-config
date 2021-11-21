@@ -15,6 +15,8 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     pkgs.watch
     pkgs.zathura
     pkgs.ghq
+    pkgs.gdb
+    pkgs.unzip
 
     pkgs.tlaplusToolbox
     pkgs.tetex

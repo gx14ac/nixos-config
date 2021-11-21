@@ -38,6 +38,8 @@
     niv
   ];
 
+  environment.enableDebugInfo = true;
+
   # nix flakes install
   nix = {
     package = pkgs.nixUnstable;

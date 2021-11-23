@@ -2,7 +2,7 @@
   nvim-treesitter, nvim-treesitter-playground,
   nvim-treesitter-textobjects, nvim-lspconfig,
   nvim-lspinstall, nvim-cmp, cmp-nvim-lsp,
-  cmp-vsnip, cmp-buffer, vim-vsnip,
+  cmp-vsnip, cmp-buffer, vim-vsnip, nvim-tree,
 }:
 
 self: super:
@@ -81,6 +81,11 @@ self: super:
     vim-vsnip = vimUtils.buildVimPlugin {
       name = "vim-vsnip";
       src = vim-vsnip;
+    };
+
+    nvim-tree = vimUtils.buildVimPlugin {
+      name = "nvim-tree";
+      src = nvim-tree;
     };
   };
 }

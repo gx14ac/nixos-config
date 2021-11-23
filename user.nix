@@ -4,7 +4,7 @@
   users.users.shinta = {
     isNormalUser = true;
     home = "/home/shinta";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     shell = pkgs.fish;
   };
 }

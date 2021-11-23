@@ -10,6 +10,7 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     pkgs.jq
     pkgs.rofi
     pkgs.go
+    pkgs.clang-tools
     pkgs.gopls
     pkgs.tree
     pkgs.watch
@@ -17,6 +18,13 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     pkgs.ghq
     pkgs.gdb
     pkgs.unzip
+    pkgs.cargo 
+    pkgs.rustc
+    pkgs.rust-analyzer
+    pkgs.rustfmt
+    pkgs.wireguard
+    pkgs.binutils
+    pkgs.gperftools
 
     pkgs.tlaplusToolbox
     pkgs.tetex
@@ -159,6 +167,7 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
       customVim.cmp-vsnip
       customVim.cmp-buffer
       customVim.vim-vsnip
+      customVim.nvim-tree
 
       vimPlugins.ctrlp
       vimPlugins.vim-airline

@@ -103,13 +103,18 @@
       url = "github:hrsh7th/vim-vsnip";
       flake = false;
     };
+
+    nvim-tree = {
+      url = "github:kyazdani42/nvim-tree.lua";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, 
   	home-manager, theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control,
 	tmux-dracula, vim-fish, vim-fugitive, vim-dracula, nord-vim, nvim-treesitter, 
 	nvim-treesitter-playground, nvim-treesitter-textobjects, nvim-lspconfig,
-	nvim-lspinstall, nvim-cmp, cmp-nvim-lsp, cmp-vsnip, cmp-buffer, vim-vsnip, }:
+	nvim-lspinstall, nvim-cmp, cmp-nvim-lsp, cmp-vsnip, cmp-buffer, vim-vsnip, nvim-tree, }:
   let
     mkHome = import ./home-manager.nix;
     overlays = import ./overlays.nix {
@@ -117,7 +122,7 @@
 	vim-dracula nord-vim nvim-treesitter
 	nvim-treesitter-playground nvim-treesitter-textobjects
 	nvim-lspconfig nvim-lspinstall nvim-cmp
-	cmp-nvim-lsp cmp-vsnip cmp-buffer vim-vsnip; };
+	cmp-nvim-lsp cmp-vsnip cmp-buffer vim-vsnip nvim-tree; };
   in {
     nixosConfigurations = {
       vm-intel = nixpkgs.lib.nixosSystem {

@@ -2,7 +2,7 @@
   nvim-treesitter, nvim-treesitter-playground,
   nvim-treesitter-textobjects, nvim-lspconfig,
   nvim-lspinstall, nvim-cmp, cmp-nvim-lsp,
-  cmp-vsnip, cmp-buffer, vim-vsnip,
+  cmp-vsnip, cmp-buffer, vim-vsnip, nvim-tree,
 }:
 
 let 
@@ -10,7 +10,7 @@ let
   	vim-dracula nord-vim nvim-treesitter
  	nvim-treesitter-playground nvim-treesitter-textobjects
 	nvim-lspconfig nvim-lspinstall nvim-cmp
-	cmp-nvim-lsp cmp-vsnip cmp-buffer vim-vsnip; };
+	cmp-nvim-lsp cmp-vsnip cmp-buffer vim-vsnip nvim-tree; };
 in {
   nixpkgs.overlays = [
     vim

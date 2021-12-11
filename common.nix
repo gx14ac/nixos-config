@@ -36,6 +36,7 @@
     gnumake
     killall
     niv
+    rustup
   ];
 
   environment.enableDebugInfo = true;

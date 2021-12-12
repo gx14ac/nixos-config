@@ -37,6 +37,8 @@
     killall
     niv
     rustup
+    libclang
+    sqlite
   ];
 
   environment.enableDebugInfo = true;

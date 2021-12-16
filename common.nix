@@ -40,6 +40,7 @@
     libclang
     sqlite
     ipfs
+    xclip
   ];
 
   environment.enableDebugInfo = true;

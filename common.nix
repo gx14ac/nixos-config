@@ -39,6 +39,7 @@
     rustup
     libclang
     sqlite
+    ipfs
   ];
 
   environment.enableDebugInfo = true;

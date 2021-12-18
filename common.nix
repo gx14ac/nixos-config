@@ -6,6 +6,9 @@
     enable = true;
     layout = "us";
     dpi = 220;
+    xkbOptions = "ctrl:swapcaps";
+    libinput.enable = true;
+    libinput.touchpad.naturalScrolling = true;
 
     desktopManager = {
       xterm.enable = false;
@@ -41,6 +44,7 @@
     sqlite
     ipfs
     xclip
+    chromium
   ];
 
   environment.enableDebugInfo = true;
@@ -85,6 +89,10 @@
   
   # defaultLocale
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.inputMethod = {
+    enabled = "fcitx";
+    fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+  };
 
   # firewall
   networking.firewall.enable = false;

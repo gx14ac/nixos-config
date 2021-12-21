@@ -32,7 +32,6 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    firefox
     gcc
     bash
     sysstat
@@ -40,11 +39,10 @@
     killall
     niv
     rustup
-    libclang
-    sqlite
     ipfs
     xclip
     chromium
+    libiconv
   ];
 
   environment.enableDebugInfo = true;

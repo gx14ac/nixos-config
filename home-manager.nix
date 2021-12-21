@@ -10,7 +10,6 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     pkgs.jq
     pkgs.rofi
     pkgs.go
-    pkgs.clang-tools
     pkgs.gopls
     pkgs.tree
     pkgs.watch
@@ -19,11 +18,9 @@ name: { theme-bobthefish, fish-fzf, fish-ghq, tmux-pain-control, tmux-dracula }:
     pkgs.gdb
     pkgs.unzip
     pkgs.cargo 
-    pkgs.rustc
     pkgs.rust-analyzer
     pkgs.rustfmt
     pkgs.wireguard
-    pkgs.binutils
     pkgs.gperftools
 
     pkgs.tlaplusToolbox

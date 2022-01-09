@@ -22,12 +22,6 @@ RUN source /home/nix/.nix-profile/etc/profile.d/nix.sh
 ENV PATH /home/nix/.nix-profile/bin:$PATH
 ENV NIX_PATH /home/nix/.nix-defexpr/channels
 
-# This bug still repros with 21.05, but if you want to use 21.05 rather
-# than unreleased NixOS you can uncomment the below:
-#ENV NIX_PATH /home/nix/.nix-defexpr/channels/nixos-21.05
-#RUN nix-channel --add http://nixos.org/channels/nixos-21.05 nixos-21.05
-#RUN nix-channel --update
-
 COPY ./iso.nix /home/nix/iso.nix
 RUN sudo chown nix:nix /home/nix/iso.nix
 

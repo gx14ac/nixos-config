@@ -26,7 +26,7 @@ vm/bootstrap:
   			services.openssh.enable = true;\n \
 			services.openssh.passwordAuthentication = true;\n \
 			services.openssh.permitRootLogin = \"yes\";\n \
-			users.users.root.initialPassword = \"root\";\n \
+			users.users.root.initialPassword = \"password\";\n \
 		' /mnt/etc/nixos/configuration.nix; \
 		nixos-install --no-root-passwd; \
 		reboot; \

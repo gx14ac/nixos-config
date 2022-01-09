@@ -1,7 +1,6 @@
 NIXADDR ?= unset
 NIXPORT ?= 22
 
-# Settings
 NIXBLOCKDEVICE ?= nvme0n1
 
 SSH_OPTIONS=-o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no

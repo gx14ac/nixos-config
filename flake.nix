@@ -133,16 +133,16 @@
       vm-intel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-	  ./hardware-configuration.nix
-	  ./user.nix
-	  ./common.nix
-	  overlays
+	      ./hardware-configuration.nix
+	      ./user.nix
+	      ./common.nix
+	      overlays
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.shinta = mkHome "shinta" rec { 
               inherit theme-bobthefish fish-fzf fish-ghq tmux-pain-control tmux-dracula;
-	    };
+	          };
           }
         ];
       };

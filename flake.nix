@@ -124,10 +124,10 @@
     mkHome = import ./home-manager.nix;
     overlays = import ./overlays.nix {
     	inherit vim-fish vim-fugitive
-	vim-dracula nord-vim nvim-treesitter
-	nvim-treesitter-playground nvim-treesitter-textobjects
-	nvim-lspconfig nvim-lspinstall nvim-cmp
-	cmp-nvim-lsp cmp-vsnip cmp-buffer vim-vsnip nvim-tree; };
+	      vim-dracula nord-vim nvim-treesitter
+	      nvim-treesitter-playground nvim-treesitter-textobjects
+	      nvim-lspconfig nvim-lspinstall nvim-cmp
+	      cmp-nvim-lsp cmp-vsnip cmp-buffer vim-vsnip nvim-tree; };
   in {
     nixosConfigurations = {
       vm-intel = nixpkgs.lib.nixosSystem {
